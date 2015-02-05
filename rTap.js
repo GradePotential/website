@@ -18,6 +18,10 @@ var arr = [
 ['(214) 328-8867', 'rTapNumber166378']
 ]
 
+function makePhoneRegExp(phone){
+	return new RegExp(phone.replace('(', '\\(').replace(')', '\\)').replace(' ', '\\s'));
+}
+
 jQuery.expr[':'].hasText = function(element, index){
 	if (element.childNodes.length == 1 && element.firstChild.nodeType == 3){
 		return jQuery.trim(element.innerHTML).length > 0;
@@ -25,9 +29,9 @@ jQuery.expr[':'].hasText = function(element, index){
 	return false;
 }
 jQuery(':contains("8-8867"):hasText').each(function (i, e){
-	var nums = arr.filter(function (a){return e.textContent.match(a[0]).length > 0})
+	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
-		e.innerHTML.replace(num[0], '<span class="' + num[1] + '">' + num[0] + '</span>');
+		e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
 	});
 });
 
