@@ -28,7 +28,7 @@ jQuery.expr[':'].hasText = function(element, index){
 	}
 	return false;
 }
-jQuery(':contains("8-8867"):hasText').each(function (i, e){
+jQuery(':contains("8-8867"):hasText, :contains("9-3532"):hasText').each(function (i, e){
 	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
 		e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
