@@ -25,10 +25,10 @@ jQuery.expr[':'].hasText = function(element, index){
 	return false;
 }
 jQuery(':contains("8-8867"):hasText').each(function (i, e){
-	var num = arr.filter(function (a){return a[0] == e.textContent.trim()})[0]
-	if (num){
-		e.innerHTML = '<span class="' + num[1] + '">' + num[0] + '</span>';
-	}
+	var nums = arr.filter(function (a){return a[0] == e.textContent.trim()})
+	nums.each(function (num){
+		e.innerHTML.replace(num[0], '<span class="' + num[1] + '">' + num[0] + '</span>');
+	});
 });
 
 var adiInit = "19056", adiRVO = true;
