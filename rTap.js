@@ -25,7 +25,7 @@ jQuery.expr[':'].hasText = function(element, index){
 	return false;
 }
 jQuery(':contains("8-8867"):hasText').each(function (i, e){
-	var nums = arr.filter(function (a){return a[0] == e.textContent.trim()})
+	var nums = arr.filter(function (a){return e.textContent.match(a[0]).length > 0})
 	nums.forEach(function (num){
 		e.innerHTML.replace(num[0], '<span class="' + num[1] + '">' + num[0] + '</span>');
 	});
