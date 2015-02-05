@@ -1,5 +1,5 @@
 jQuery.expr[':'].hasText = function(element, index){
-	if (element.childNotes.length == 1 && element.firstChild.nodeType == 3){
+	if (element.childNodes.length == 1 && element.firstChild.nodeType == 3){
 		return jQuery.trim(element.innerHTML).length > 0;
 	}
 	return false;
