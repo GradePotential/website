@@ -18,6 +18,24 @@ var arr = [
 ['(214) 328-8867', 'rTapNumber170574']
 ]
 
+var cookie = {
+  set: function (cname,cvalue,exdays){
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+  },
+  get: function(name){
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+}
+
 function makePhoneRegExp(phone){
 	return new RegExp(phone.replace('(', '\\(').replace(')', '\\)').replace(' ', '\\s'));
 }
@@ -45,3 +63,24 @@ var adiFunc = null;
 	var s = document.getElementsByTagName("script")[0];
 	s.parentNode.insertBefore(adiSrc, s);
 })();
+
+function rTapPostReplacement(){
+  if (cookie.get('adiV')){
+   
+    jQuery.ajax({
+      url: 'http://data.gradepotential.com/api/rTap/polling/' + cookie.get('adiV'),
+      success: function (data){
+        console.log('Called!!!', data);
+        (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"4021668"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+      },
+      timeout: 10*60*1000
+    });
+    jQuery('[class^=rTapNumber]').bind('touchstart', function(){
+      (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"4021668"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+      jQuery.ajax({
+        url: 'http://data.gradepotential.com/api/rTap/touchstart/' + cookie.get('adiV'),
+        success: function(data){console.log(data)}
+      });
+    });
+  }
+}
