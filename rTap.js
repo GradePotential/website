@@ -66,10 +66,6 @@ var adiFunc = null;
 
 function rTapPostReplacement(){
   if (cookie.get('adiV')){
-   	if (ga){
-   		ga('set', 'dimension1', cookie.get('adiV'));
-   		console.log('set analytics custom dimension!!!');
-   	}
     jQuery.ajax({
       url: 'http://data.gradepotential.com/api/rTap/polling/' + cookie.get('adiV'),
       success: function (data){
