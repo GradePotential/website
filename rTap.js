@@ -3,6 +3,7 @@ var arr = [
 ['(816) 348-8867', 'rTapNumber166389'],
 ['(281) 238-8867', 'rTapNumber166379'],
 ['(210) 558-8867', 'rTapNumber166383'],
+['(210) 904-8161', 'rTapNumber166383'],
 ['(512) 458-8867', 'rTapNumber166387'],
 ['(651) 578-8867', 'rTapNumber166397'],
 ['(830) 778-8867', 'rTapNumber166388'],
@@ -15,7 +16,8 @@ var arr = [
 ['(913) 498-8867', 'rTapNumber166385'],
 ['(952) 448-8867', 'rTapNumber166390'],
 ['(972) 488-8867', 'rTapNumber166384'],
-['(214) 328-8867', 'rTapNumber170574']
+['(214) 328-8867', 'rTapNumber170574'],
+
 ]
 
 var cookie = {
@@ -46,7 +48,7 @@ jQuery.expr[':'].hasText = function(element, index){
 	}
 	return false;
 }
-jQuery(':contains("8-8867"):hasText, :contains("9-3532"):hasText').each(function (i, e){
+jQuery(':contains("8-8867"):hasText, :contains("9-3532"):hasText, :contains("4-8161"):hasText').each(function (i, e){
 	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
 		e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
