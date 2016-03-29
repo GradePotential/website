@@ -48,7 +48,7 @@ jQuery.expr[':'].hasText = function(element, index){
 	}
 	return false;
 }
-var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(' ');
+var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
 jQuery(selector).each(function (i, e){
 	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
