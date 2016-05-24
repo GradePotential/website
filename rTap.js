@@ -70,9 +70,11 @@ jQuery(selector).each(function (i, e){
 		e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
     if (num[2]){
       adiInit = num[2];
+      console.log('before', adiInit);
     }
 	});
 });
+console.log('after', adiInit);
 
 var adiRVO = true;
 var adiFunc = null;
