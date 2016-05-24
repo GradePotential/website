@@ -26,12 +26,12 @@ var arr = [
 ['(214) 390-9099', 'rTapNumber170574'],
 ['(817) 527-8844', 'rTapNumber166382'],
 ['(817) 369-8173', 'rTapNumber166382'],
-['(858) 345-6597', 'rTapNumber39661'],
-['(619) 578-8867', 'rTapNumber39660'],
-['(619) 363-7261', 'rTapNumber39660'],
-['(619) 363-5927', 'rTapNumber39660'],
-['(619) 264-5969', 'rTapNumber39660'],
-['(619) 256-4818', 'rTapNumber39660'],
+['(858) 345-6597', 'rTapNumber39661', '6522'],
+['(619) 578-8867', 'rTapNumber39660', '6522'],
+['(619) 363-7261', 'rTapNumber39660', '6522'],
+['(619) 363-5927', 'rTapNumber39660', '6522'],
+['(619) 264-5969', 'rTapNumber39660', '6522'],
+['(619) 256-4818', 'rTapNumber39660', '6522'],
 ]
 
 var cookie = {
@@ -62,15 +62,19 @@ jQuery.expr[':'].hasText = function(element, index){
 	}
 	return false;
 }
+var adiInit = "19056"
 var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
 jQuery(selector).each(function (i, e){
 	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
 		e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
+    if (num[2]){
+      adiInit = num[2];
+    }
 	});
 });
 
-var adiInit = "19056", adiRVO = true;
+var adiRVO = true;
 var adiFunc = null;
 (function() {
 	var adiSrc = document.createElement("script"); adiSrc.type = "text/javascript";
