@@ -68,7 +68,7 @@ jQuery(selector).each(function (i, e){
 	var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
 	nums.forEach(function (num){
 		e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
-    if (num[2]){
+    if (num[2] && document.location.hostname.toLowerCase() != 'gradepotentialtutoring.com'){
       adiInit = num[2];
     }
 	});
