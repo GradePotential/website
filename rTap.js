@@ -25,7 +25,9 @@ var arr = [
 ['(214) 295-9343', 'rTapNumber170574'],
 ['(214) 390-9099', 'rTapNumber170574'],
 ['(817) 527-8844', 'rTapNumber166382'],
-['(817) 369-8173', 'rTapNumber166382']
+['(817) 369-8173', 'rTapNumber166382'],
+['(858) XXX-XXXX', 'rTapNumber39661'],
+['(619) XXX-XXXX', 'rTapNumber39660']
 ]
 
 var cookie = {
