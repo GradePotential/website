@@ -1,3 +1,31 @@
+var infusionActions = {
+	'gradepotentialtutoringslocounty.com': 'https://zcu92250.infusionsoft.com/app/form/process/0778eea6b1fc774affd4aa5d56e81c28',
+	'tutoringsantabarbaraarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/6b4f96f0f3c3f35d8a884cb25b1defbd',
+	'tutoringventuracounty.com': 'https://zcu92250.infusionsoft.com/app/form/process/2dcd474ccda47149d3469826d2851c58',
+	'gradepotentialtutoringsandiego.com': 'https://zcu92250.infusionsoft.com/app/form/process/a6162ac29f92252f8c8fdc67f47b7997',
+	'gradepotentialtutoringoc.com': 'https://zcu92250.infusionsoft.com/app/form/process/a4f8da8470a83cdd65f63139f3585ca3',
+	'tutoringsanfernandovalley.com': 'https://zcu92250.infusionsoft.com/app/form/process/92fa0256460fd61581f836bbfda26b65',
+	'tutoringsangabrielvalley.com': 'https://zcu92250.infusionsoft.com/app/form/process/260631a137d189c927601e7b59feebcc',
+	'tutoringlongbeacharea.com': 'https://zcu92250.infusionsoft.com/app/form/process/d6a76088bd4793069a7c8e6b9ce352c6',
+	'losangelestutoringservice.com': 'https://zcu92250.infusionsoft.com/app/form/process/b584e83c34505d83bd6d877e66c4508d',
+	'tutoringinlandempire.com': 'https://zcu92250.infusionsoft.com/app/form/process/69169f8188036abe3e14818d3d9e7f50',
+	'tutoringeastbayarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/031e120b1229664d51461810e79762d6',
+	'tutoringsouthbayarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/bb51ae0c0f8fcaf9128f3736b5bbe15a',
+	'tutoringpeninsula.com': 'https://zcu92250.infusionsoft.com/app/form/process/4c8a106217afc93842d75f8eda9cae76',
+	'sanfranciscotutoringservice.com': 'https://zcu92250.infusionsoft.com/app/form/process/3ac7add41176bf5768cde2bbbdb54f2d',
+	'gradepotentialtutoringsacmetro.com': 'https://zcu92250.infusionsoft.com/app/form/process/3ec0c16bfd5cfe1c6bd871c8b290f25e',
+	'tutoringseattlemetroarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/99fd61701f2f4c471f8cb75fe7f227a2',
+	'tutoringportlandmetroarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/c23da7e66a456509af458e66e46f0ffd',
+	'tutoringvegasmetroarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/a01083fe73c9a230a66adbde2ccc9179',
+	'tutoringphoenixmetroarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/48f65a610ed828e3c13833169773b92a',
+	'tutoringtucsonmetroarea.com': 'https://zcu92250.infusionsoft.com/app/form/process/1466de1f32410c72c00b89e9e55a8b2b'
+};
+var infusionAction = infusionActions[document.location.hostname.toLowerCase()];
+if (infusionAction){
+	document.getElementById('InfoForm').action = infusionAction;
+	document.getElementById('modalForm').action = infusionAction;
+}
+
 var arr = [
 ['(636) 398-8867', 'rTapNumber166398'],
 ['(816) 348-8867', 'rTapNumber166389'],
