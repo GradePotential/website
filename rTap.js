@@ -160,5 +160,7 @@ function rTapPostReplacement(){
         success: function(data){console.log(data)}
       });
     });
+    jQuery('.wpcf7-form')[0].rtap_ID.value = cookie.get('adiV');
+    jQuery('.wpcf7-form')[1].rtap_ID.value = cookie.get('adiV');
   }
 }
