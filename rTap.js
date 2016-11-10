@@ -156,7 +156,7 @@ function rTapPostReplacement(){
     });
     jQuery('[class^=rTapNumber]').bind('touchstart', function(){
       window.uetq = window.uetq || [];
-      window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': cookie.get('adiV') }); 
+      window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 'phone call' }); 
       jQuery.ajax({
         url: 'http://data.gradepotential.com/api/rTap/touchstart/' + cookie.get('adiV'),
         success: function(data){console.log(data)}
