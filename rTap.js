@@ -150,13 +150,13 @@ function rTapPostReplacement(){
       success: function (data){
         console.log('Called!!!', data);
         window.uetq = window.uetq || [];
-        window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 'phone call' }); 
+        window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 1 }); 
       },
       timeout: 10*60*1000
     });
     jQuery('[class^=rTapNumber]').bind('touchstart', function(){
       window.uetq = window.uetq || [];
-      window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 'phone call' }); 
+      window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 1 }); 
       jQuery.ajax({
         url: 'http://data.gradepotential.com/api/rTap/touchstart/' + cookie.get('adiV'),
         success: function(data){console.log(data)}
