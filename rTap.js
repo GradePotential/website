@@ -146,7 +146,7 @@ var adiFunc = null;
 function rTapPostReplacement(){
   if (cookie.get('adiV')){
     jQuery.ajax({
-      url: 'http://data.gradepotential.com/api/rTap/polling/' + cookie.get('adiV'),
+      url: 'https://data.gradepotential.com/api/rTap/polling/' + cookie.get('adiV'),
       success: function (data){
         console.log('Called!!!', data);
         window.uetq = window.uetq || [];
@@ -158,7 +158,7 @@ function rTapPostReplacement(){
       window.uetq = window.uetq || [];
       window.uetq.push({ 'ec':'phone call', 'ea':'phone call', 'el':'phone call', 'ev': 1 }); 
       jQuery.ajax({
-        url: 'http://data.gradepotential.com/api/rTap/touchstart/' + cookie.get('adiV'),
+        url: 'https://data.gradepotential.com/api/rTap/touchstart/' + cookie.get('adiV'),
         success: function(data){console.log(data)}
       });
     });
