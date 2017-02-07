@@ -154,7 +154,7 @@ jQuery.expr[':'].hasText = function(element, index){
   }
   return false;
 }
-var adiInit = "19056"
+var adiInit = ""
 var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
 jQuery(selector).each(function (i, e){
   var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
@@ -162,6 +162,8 @@ jQuery(selector).each(function (i, e){
     e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
     if (num[2]){
       adiInit = num[2];
+    } else {
+      adiInit = "19056";
     }
   });
 });
