@@ -201,5 +201,10 @@ function rTapPostReplacement(){
       jQuery('.wpcf7-form')[0].rtap_ID.value = cookie.get('adiV');
       jQuery('.wpcf7-form')[1].rtap_ID.value = cookie.get('adiV');
     }
+    ga('set', {
+      'dimension1':  cookie.get('geo_page'),
+      'dimension2':  cookie.get('adiV')
+    });
+    ga('send', 'pageview');
   }
 }
