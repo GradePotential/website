@@ -204,10 +204,8 @@ function rTapPostReplacement(){
     if (jQuery('.lp-pom-form').length) {
       jQuery('.lp-pom-form')[0].children[0].inf_custom_rTapId.value = cookie.get('adiV');
     }
-    ga('set', {
-      'dimension1':  cookie.get('geo_page'),
+    ga('send', 'event', 'Page', 'pageview', 'ResponseTap ID', {
       'dimension2':  cookie.get('adiV')
     });
-    ga('send', 'pageview');
   }
 }
