@@ -160,7 +160,10 @@ var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '
 jQuery(selector).each(function (i, e){
   var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
   nums.forEach(function (num){
-    e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
+    var thankYouPage = window.location.protocol + "//" + window.location.hostname + "/thank-you";
+    if (window.location != thankYouPage) {
+      e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
+    }
     if (num[2]){
       adiInit = num[2];
     }
