@@ -160,8 +160,7 @@ var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '
 jQuery(selector).each(function (i, e){
   var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
   nums.forEach(function (num){
-    var thankYouPage = window.location.protocol + "//" + window.location.hostname + "/thank-you";
-    if (window.location != thankYouPage) {
+    if (window.location.href.indexOf("thank-you") === -1) {
       e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
     }
     if (num[2]){
@@ -208,7 +207,8 @@ function rTapPostReplacement(){
       jQuery('.lp-pom-form')[0].children[0].inf_custom_rTapId.value = cookie.get('adiV');
     }
     ga('send', 'event', 'Page', 'pageview', 'ResponseTap ID', {
-      'dimension2':  cookie.get('adiV')
+      'dimension2':  cookie.get('adiV'),
+      nonInteraction: true
     });
   }
 }
