@@ -160,7 +160,7 @@ var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '
 jQuery(selector).each(function (i, e){
   var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
   nums.forEach(function (num){
-    if (window.location.href.indexOf("thank-you") === -1 && cookie.get('hit_thank_you') === '0' ) {
+    if (window.location.href.indexOf("thank-you") === -1) {
       e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
     }
     if (num[2]){
