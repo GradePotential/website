@@ -187,16 +187,25 @@ optgroup {
 
 
 .NumberList {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	width: 100%;
 	padding: 0;
 	margin: 0;
 }
 
 .Number {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	width: 100%;
 	padding: 0;
 	margin: 0;
@@ -208,10 +217,24 @@ optgroup {
 }
 
 .Number:hover {
-	animation-name: tapOnNumber;
-	animation-duration: 750ms;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-out;
+	-webkit-animation-name: tapOnNumber;
+	        animation-name: tapOnNumber;
+	-webkit-animation-duration: 750ms;
+	        animation-duration: 750ms;
+	-webkit-animation-iteration-count: 1;
+	        animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+	        animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes tapOnNumber {
+	from {
+		background-color: rgba(46, 204, 113, 0.13);
+	}
+
+	to {
+		background-color: white;
+	}
 }
 
 @keyframes tapOnNumber {
@@ -227,25 +250,36 @@ optgroup {
 .Number--done {
 	text-decoration: line-through;
 	color: #BBB;
+	-webkit-transition: color 225ms ease;
 	transition: color 225ms ease;
 }
 
 .Number__Link {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 
 .Number__Label {
 	width: 120px;
+	font-size: 18.4px;
 	font-size: 1.15rem;
 	font-weight: 700;
 	text-align: right;
+	padding: 20px;
 	padding: 1.25rem;
 }
 
 .Number__Number {
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
 	text-align: left;
+	padding: 20px;
 	padding: 1.25rem;
 }
