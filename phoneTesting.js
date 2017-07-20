@@ -1,6 +1,6 @@
-const numberList = document.querySelector('.NumberList');
+var numberList = document.querySelector('.NumberList');
 
-const numbers = [
+var numbers = [
   {
     "number": 8055488867,
     "formatted": "(805) 548-8867",
@@ -483,21 +483,23 @@ const numbers = [
   }
 ];
 
-const createListItem = number => {
-	const el = document.createElement('li');
+function createListItem(number) {
+	var el = document.createElement('li');
 	el.className = 'Number';
 
-	el.addEventListener('click', e => e.currentTarget.classList.add('Number--done'))
+	el.addEventListener('click', function(e){
+		return e.currentTarget.classList.add('Number--done');
+	});
 
-	const numberLink = document.createElement('a');
+	var numberLink = document.createElement('a');
 	numberLink.className = 'Number__Link';
-	numberLink.href = `tel:${number.number}`;
+	numberLink.href = 'tel:' + number.number;
 
-	const labelSpan = document.createElement('span');
+	var labelSpan = document.createElement('span');
 	labelSpan.className = 'Number__Label';
 	labelSpan.innerText = number.label;
 
-	const numberSpan = document.createElement('span');
+	var numberSpan = document.createElement('span');
 	numberSpan.className = 'Number__Number';
 	numberSpan.innerText = number.formatted;
 
