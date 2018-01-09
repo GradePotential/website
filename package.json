@@ -1,0 +1,17 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GradePotential/website",
+  "author": "Eric Wyne <ecwyne@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha rTap.test.js"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "jsdom": "^7.0.2",
+    "mocha": "^4.1.0",
+    "mocha-jsdom": "^1.1.0"
+  }
+}
