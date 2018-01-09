@@ -229,7 +229,7 @@ var adiFunc = null;
   adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn")
   + ".responsetap.com/static/scripts/rTapTrack.min.js";
   var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(adiSrc, s);
+  s && s.parentNode.insertBefore(adiSrc, s);
 })();
 
 function rTapPostReplacement(){
