@@ -281,9 +281,8 @@ function rTapPostReplacement(){
       });
     });
     if (jQuery('.wpcf7-form').length) {
-      jQuery('.wpcf7-form').each(function() {
-        jQuery(this).rtap_ID.value = cookie.get('adiV');
-      });
+      jQuery('.wpcf7-form')[0].rtap_ID.value = cookie.get('adiV');
+      jQuery('.wpcf7-form')[1].rtap_ID.value = cookie.get('adiV');
     }
     if (jQuery('.lp-pom-form').length) {
       jQuery('.lp-pom-form')[0].children[0].inf_custom_rTapId.value = cookie.get('adiV');
