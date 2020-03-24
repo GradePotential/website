@@ -249,30 +249,36 @@ jQuery.expr[':'].hasText = function(element, index){
   }
   return false;
 }
-var adiInit = "19056"
-var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
-jQuery(selector).each(function (i, e){
-  var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
-  nums.forEach(function (num){
-    if (window.location.href.indexOf("thank") === -1) {
-      e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
-    }
-    if (num[2]){
-      adiInit = num[2];
-    }
-  });
-});
 
+var promise = window.runBeforeResponseTap ? window.runBeforeResponseTap() : Promise.resolve();
+var adiInit = "19056"
 var adiRVO = true;
 var adiFunc = null;
-(function() {
-  var adiSrc = document.createElement("script"); adiSrc.type = "text/javascript";
-  adiSrc.async = true;
-  adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn")
-  + ".responsetap.com/static/scripts/rTapTrack.min.js";
-  var s = document.getElementsByTagName("script")[0];
-  s && s.parentNode.insertBefore(adiSrc, s);
-})();
+var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
+
+promise.then(function (){
+  jQuery(selector).each(function (i, e){
+    var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
+    nums.forEach(function (num){
+      if (window.location.href.indexOf("thank") === -1) {
+        e.innerHTML = e.innerHTML.replace(makePhoneRegExp(num[0]), '<span class="' + num[1] + '">' + num[0] + '</span>');
+      }
+      if (num[2]){
+        adiInit = num[2];
+      }
+    });
+  });
+
+  
+  (function() {
+    var adiSrc = document.createElement("script"); adiSrc.type = "text/javascript";
+    adiSrc.async = true;
+    adiSrc.src = ("https:" == document.location.protocol ? "https://static-ssl" : "http://static-cdn")
+    + ".responsetap.com/static/scripts/rTapTrack.min.js";
+    var s = document.getElementsByTagName("script")[0];
+    s && s.parentNode.insertBefore(adiSrc, s);
+  })();
+});
 
 function rTapPostReplacement(){
   if (cookie.get('adiV')){
