@@ -250,7 +250,7 @@ jQuery.expr[':'].hasText = function(element, index){
   return false;
 }
 
-var rbrtPromise = window.runBeforeResponseTap ? window.runBeforeResponseTap() : Promise.resolve();
+var rbrtPromise = typeof runBeforeResponseTap === 'function' ? runBeforeResponseTap() : Promise.resolve();
 var adiInit = "19056"
 var adiRVO = true;
 var adiFunc = null;
