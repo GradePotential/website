@@ -250,13 +250,13 @@ jQuery.expr[':'].hasText = function(element, index){
   return false;
 }
 
-var promise = window.runBeforeResponseTap ? window.runBeforeResponseTap() : Promise.resolve();
+var rbrtPromise = window.runBeforeResponseTap ? window.runBeforeResponseTap() : Promise.resolve();
 var adiInit = "19056"
 var adiRVO = true;
 var adiFunc = null;
 var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
 
-promise.then(function (){
+rbrtPromise.then(function (){
   jQuery(selector).each(function (i, e){
     var nums = arr.filter(function (a){return e.textContent.match(makePhoneRegExp(a[0])) && e.textContent.match(makePhoneRegExp(a[0])).length > 0})
     nums.forEach(function (num){
