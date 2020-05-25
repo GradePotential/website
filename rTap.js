@@ -492,7 +492,7 @@ jQuery.expr[':'].hasText = function(element, index){
 }
 
 var rbrtPromise = typeof runBeforeResponseTap === 'function' ? runBeforeResponseTap() : Promise.resolve();
-var adiInit = "19056"
+var adiInit = '19056'
 var adiRVO = true;
 var adiFunc = null;
 var selector = arr.map(function (e){return ':contains("' + e[0].substr(8, 6) + '"):hasText'}).join(', ');
