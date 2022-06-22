@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "jquery": "^3.2.1",
-    "jsdom": "^7.0.2",
+    "jsdom": "^16.5.0",
     "mocha": "^4.1.0",
     "mocha-jsdom": "^1.1.0"
   }
